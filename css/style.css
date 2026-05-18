@@ -1,0 +1,164 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --border-color: #334155;
+    --map-land: #475569;
+    --map-outline: #1e293b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-panel {
+    flex: 2;
+    min-width: 600px;
+}
+
+.side-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 350px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+#map-container {
+    flex-grow: 1;
+    min-height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background-color: #0b1121;
+}
+
+#donut-container, #timeline-container {
+    min-height: 250px;
+    position: relative;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 10px;
+    font-size: 0.85rem;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid var(--accent-color);
+    color: #fff;
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: opacity 0.2s;
+}
+
+/* SVG Styling */
+.sphere {
+    fill: #0b1121;
+}
+
+.country {
+    fill: var(--map-land);
+    stroke: var(--map-outline);
+    stroke-width: 0.5;
+}
+
+.meteorite {
+    fill: var(--accent-color);
+    opacity: 0.7;
+    stroke: #fff;
+    stroke-width: 0.5px;
+    cursor: pointer;
+    transition: opacity 0.2s, r 0.2s;
+}
+
+.meteorite:hover {
+    opacity: 1;
+    stroke: #ffeb3b;
+    stroke-width: 1.5px;
+}
+
+/* Timeline specific */
+.bar {
+    fill: var(--accent-color);
+}
+.bar:hover {
+    fill: var(--accent-hover);
+}
+
+.selection {
+    fill: rgba(255, 255, 255, 0.2) !important;
+    stroke: #fff;
+    stroke-width: 1px;
+    stroke-dasharray: 4px;
+}
+
+/* Axis Styling for Dark Mode */
+.domain, .tick line {
+    stroke: var(--border-color);
+}
+
+.tick text {
+    fill: var(--text-muted);
+}
